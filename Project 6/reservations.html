@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- tab title -->
+<head>
+	<meta charset="utf-8" />
+	<title> The Menu Page </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="clock.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "bistro.css" />
+</head>
+<body>
+	<!-- wrapper used to set style of most the page -->
+	<div id = wrapper>
+	<!-- main headline -->
+	<header>
+		<h1>The Lighthouse Bistro</h1>
+	</header>
+			<!-- links -->
+			<nav id = navigation>
+				<ul>
+					<li><a href="index.html">Home</a><br><br>
+					<li><a href="menu.html">Our Menu</a><br><br>
+					<li><a href="">Entertainment Schedule</a><br><br>
+					<li><a href="reservations.html">Reservations</a>
+				</ul>
+			</nav>
+			<nav id = tabletnav>
+				<div>
+					<a href="index.html">Home</a>
+					&nbsp;
+					<a href="menu.html">Our Menu</a>
+					&nbsp;
+					<a href="">Entertainment Schedule</a>
+					&nbsp;
+					<a href="reservations.html">Reservations</a>
+				</div>
+			</nav>
+			
+			<div id = address>
+				The Lighthouse Bistro<br>
+				#27 Lighthouse Road<br>
+				Mackinac City, Michigan<br>
+				49701
+				<p>
+					888-555-5555
+				</p>
+			</div>
+			<div id = address2>
+				The Lighthouse Bistro<br>
+				#27 Lighthouse Road<br>
+				Mackinac City, Michigan<br>
+				49701
+			
+				<p id = desktoptablet>
+					888-555-5555
+				</p>
+			
+				<p id = phone>
+					<a href="tel:8885555555">888-555-5555</a>
+					
+				</p>
+			</div>
+			<main>
+				<article>
+					<h3>Reservations at The Lighthouse Bistro </h3>
+				</article>
+				<div id = reserve>
+					<h3>Contact Us Today To make Your Reservation!<br></h3>
+					Required fields are marked with an asterisk * <br><br>
+					<div class="container">
+					  <form method = "post" action ="http://cs.ucf.edu/~markl/bistroformreport.php">
+						<div class="form-group">
+						  <label>*First Name:</label>
+						  <input type="text" class="form-control" name="myFName">
+						</div><br>
+						<div class="form-group">
+						  <label>*Last Name:</label>
+						  <input type="text" class="form-control" name="myLName">
+						</div><br>
+						<div class="form-group">
+						  <label>*Email:</label>
+						  <input type="email" class="form-control" name="myEmail">
+						</div><br>
+						<div class="form-group">
+						  <label >Phone:</label>
+						  <input type="tel" class="form-control" name="myPhone">
+						</div><br>
+						<div class="form-group">
+						  <label >Date:</label>
+						  <input type="date" class="form-control" name="myDate">
+						</div><br>
+						<div class="form-group">
+						  <label>Time:</label>
+						  <input type="time" class="form-control" name="myTime">
+						</div><br>
+						<div class="form-group">
+						  <label>Number of Guests:</label>
+						  <input type="number" class="form-control" name="myGuests">
+						</div><br>
+						<div class="form-group">
+						  *Comments:
+						  <textarea rows="2" cols="35" name="myComments"></textarea>
+						</div><br>
+							<input type="submit" value="Submit" />
+					  </form>
+					</div>
+				</div>
+			</main>
+		</div>
+		<footer>
+			Copyright &copy; 2017 The Lighthouse Bistro <br>
+			<a href="mailto:jacob@shanefield.com">jacob@shanefield.com</a><br>
+			<script>
+				document.write(Date())
+			</script>
+		</footer>
+	</body>
+</html>

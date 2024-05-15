@@ -1,0 +1,363 @@
+/*stylesheet*/
+/*Jacob Shanefield Fall 2017*/
+
+#mobile{
+	display: none;
+}
+
+
+#phone{
+	display: none;
+}
+
+#address2{
+	display: none;
+}
+
+#address2{
+	display: none;
+}
+
+#tabletnav{
+	display:none;
+}
+
+/*tablet view*/
+@media only screen and (max-device-width: 64em) and (min-device-width: 37.5em) {
+	body{
+		margin: 0px;
+	}
+	
+	#navigation{
+	 display: none;
+	}
+	
+	#tabletnav{
+		padding-bottom: 20px;
+		width:100%;
+		display:block;
+		font-size: 100%;
+	}
+	
+	nav br {
+		display: none;
+	}
+	
+	#address2{
+		float:right;
+		display: block;
+		color: #072b66;
+		text-align: center;
+		width: 100%;
+		font-size:70%;
+	}
+	
+	#address{
+		display: none;
+	}
+	
+	#wrapper {
+		width: auto;
+		min-width: 0px;
+	}
+	main{
+		float: right;
+		margin-left:0px;
+		display: block;
+	}
+	
+	li{
+		display: inline;
+	}
+
+	nav > ul > li > a{
+		display: inline;
+		display: block;
+		padding-bottom: .25em;
+		padding-top: .25em;
+		padding-left:.75em;
+		padding-right:.75em;
+	}
+	
+	img{
+		margin-bottom: 5px;
+	}
+	
+	footer{
+		position: relative;
+		margin-top: 250px;
+		clear: both;
+
+	}
+}
+
+/*mobile view*/
+@media only screen and (max-device-width: 37.5em) {
+	
+	header{
+		padding-top: 1em;
+	}
+	
+	#navigation{
+		position: relative;
+		width:100%;
+		display:block;
+	}
+	
+	article {
+		margin-top: 200px;
+		margin-left: 200px;
+	}
+	
+	main{
+		float: right;
+		padding-bottom: .1em;
+		padding-top: .1em;
+		padding-left:1em;
+		padding-right:1em;
+		font-size:90%;
+	}
+	
+	h1{
+		font-size:1.5em;
+	}
+	
+	nav > ul > li{
+		display: block;
+		border-bottom: 1px solid #FFE4C4;
+		text-align: center;
+	}
+	
+	nav br {
+		display: none;
+	}
+	
+	img {
+		display: none;
+		height: 0;
+	}
+	
+	
+	table {
+		visibility: hidden;
+	}
+	
+	#mobile{
+		display:block;
+		
+	}
+	
+	#address{
+		display: none;
+	}
+	
+	#address2{
+		float:right;
+		display: block;
+		color: #072b66;
+		text-align: center;
+		width: 100%;
+		font-size:70%;
+	}
+	
+	#desktoptablet{
+		display:none;
+	}
+	
+	#phone{
+		display: block;
+		color: #FFE4C4;
+	}
+	
+	footer{
+		position: relative;
+		margin-top: -180px;
+		clear: both;
+	}
+	
+}
+
+body{
+	background-image: url("images/ocean.jpg");
+	background-repeat: repeat-x;
+	background-color: #00BFFF;
+	color: #221811;
+	font-family: Verdana;
+	
+}
+
+
+/*adds picture and style to header title*/
+header > h1{
+	background-image: url("images/lighthouselogo.jpg");
+	background-size: auto, 50px;
+    background-repeat: no-repeat;
+	background-position:left;
+	background-origin: padding-box;
+	padding-left: 130px;
+	padding-top: 30px;
+	color: #00008B;
+	line-height: 200%;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 15px;
+	border-color: #FFE4C4;
+}
+
+h3{
+	color: #FFE4C4;
+}
+/*default color for dt*/
+dt {
+	color: #FFE4C4;
+}
+/*default color for dd*/
+dd{
+	color: #000000;
+}
+/*sets style of text at bottom of the page*/
+footer {
+	clear:both;
+	position: relative;
+	background-image: url("images/lighthouselogo1.jpg");
+	background-repeat: repeat-x;
+	background-size: auto, 35px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 6px;
+	border-color: #FFE4C4;
+	background-color: #191970;
+	color: #FFE4C4;
+	font-size: small;
+	font-family: italic;
+	text-align: center;
+	
+}	
+
+/*sets the style of the contact and address information*/
+#address {
+	position: absolute;
+    top: 400px;
+	color: #00008B;
+	font-size: 92%;
+	font-family: calibri;
+	background-image: url("images/ocean.jpg");
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+	border-color: #FFE4C4;
+	width: 180px;
+	height: 120px;
+	
+}
+
+/*used to set style of layout of page content*/
+#wrapper {
+	margin-right: auto;
+    margin-left: auto;
+	max-width: 900px;
+	min-width: 750px;
+	width: 80%;
+}
+
+/*changes bullet points to an image*/
+article > div > ul {
+	color: #FFE4C4;
+	list-style-image: url("images/marker.gif");
+}
+
+/*sets the style of links*/
+nav {
+	float: left;
+	width: 200px;
+	padding-top: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+nav > ul{
+	list-style-type: none;
+}
+
+/*removes link underlines*/
+a:link {
+	text-decoration: none;
+}
+
+/*move content to right*/
+article {
+	margin-top: 50px;
+	margin-left: 200px;
+}
+
+article > h3 {
+	position: relative;
+	color:#000000;
+	margin-left: 55px;
+}
+
+
+table {
+	margin-top: 50px;
+	margin-left: 200px;
+	/*remove unnecessary spacing*/
+	border-collapse: collapse;
+}
+
+/*make every odd row grey*/
+tr:nth-child(odd) {
+	background-color: #A9A9A9;
+}
+
+/*sets style of categories*/
+th{
+	background-color: #00008B;
+	color: #FFE4C4;
+	border-collapse: collapse;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FFE4C4;
+	text-align: center;
+}
+
+/*sets style of table content*/
+td {
+	border-color: #FFE4C4;
+	border-collapse: collapse;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FFE4C4;
+	text-align: center;
+}
+
+#reserve > h3{
+	position: relative;
+
+}
+
+#reserve{
+	position: relative;
+	margin-left: 250px;
+}
+
+
+button {
+	position: relative;
+	float: left;
+}
+
+.container{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 100px;
+	padding-left: 20px;
+	position: relative;
+	float: left;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #2b1584;
+	text-align: center;
+	background-color: #afb9c9;
+}
+
+
