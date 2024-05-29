@@ -5,6 +5,8 @@
 	<meta charset="utf-8" />
 	<title>The index/home page</title>
 	<link rel = "stylesheet" type = "text/css" href = "bistro.css" />
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 	<!-- wrapper used to set style of most the page -->
@@ -81,6 +83,8 @@
 			</p>
 		</div>
 	</main>
+	<div id="map" style="height: 500px; width: 100%;"></div>
+    <button onclick="pickRandomRestaurant()">Pick a Random Restaurant</button>
 	</div>
 	<footer>
 		Copyright &copy; 2024 The Lighthouse Bistro <br>
