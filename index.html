@@ -1,97 +1,87 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<!-- tab title -->
 <head>
-	<meta charset="utf-8" />
-	<title>The index/home page</title>
-	<link rel = "stylesheet" type = "text/css" href = "bistro.css" />
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2qoyrqXJOPahRFLG4uAZZHW91bF9PQkA&libraries=places"></script>
+    <meta charset="utf-8" />
+    <title>The index/home page</title>
+    <link rel="stylesheet" type="text/css" href="bistro.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
     <script src="script.js"></script>
 </head>
 <body>
-	<!-- wrapper used to set style of most the page -->
-	<div id = wrapper>
-	<!-- main headline -->
-	<header>
-		<h1>The Lighthouse Bistro</h1>
-	</header>
-		<!-- links -->
-		<nav id = navigation>
-				<ul>
-					<li><a href="index.html">Home</a><br><br>
-					<li><a href="menu.html">Menu</a><br><br>
-					<li><a href="">Entertainment Schedule</a><br><br>
-					<li><a href="reservations.html">Reservations</a>
-				</ul>
-			</nav>
-			<nav id = tabletnav>
-				<div>
-					<a href="index.html">Home</a>
-					&nbsp;
-					<a href="menu.html">Our Menu</a>
-					&nbsp;
-					<a href="">Entertainment Schedule</a>
-					&nbsp;
-					<a href="reservations.html">Reservations</a>
-				</div>
-			</nav>
-		
-		
-	<div id = address2>
-			The Lighthouse Bistro<br>
-		    #27 Lighthouse Road<br>
-		    Mackinac City, Michigan
-			49701<br>
-		    <p id = desktoptablet>
-				888-555-5555
-			</p>
-			
-			<p id = phone>
-				<a href="tel:8885555555">888-555-5555</a>
-			</p>
-		</div>
-	<main>
-	<img src="images/oldmackinaclight.jpg" alt="not found" style="float: right;width:250px;height:350px;">
-	<!-- main article -->
-	<article>
-		<div>
-			<h3>Enjoy Fine Dining and Entertainment at Lighthouse Point</h3>
-			<p>	Enjoy Fine Dining and Entertainment at Lighthouse Point
-				The Lighthouse Bistro offers fine dining and entertainment a stones throw from the Old Mackinac Point 
-				Lighthouse on the Straits of Mackinac.  The lighthouse was build in 1892 as a sentinel for vessels entering
-				the Stratis of Mackinac.  Open year round.  Yes, even in the winter!  Stop in for a mug of one our specialty
-				coffees after your hike. 
-			</p><br>
-			<!-- list of services and products -->
-			<ul>
-			    <li>Specialty Coffees and Teas</li>						
-			    <li>Bagels, Muffins, and Organic Snacks</li>
-			    <li>Clam Strips, Oysters, and Fresh Fish served daily</li>
-			    <li>Music and Poetry Readings</li>
-			    <li>Open Mic Night Every Friday starting at 8:00pm</li>
-			</ul>
-		</div>
-	</article>
-		<!-- contact information with id to set style -->
-		<div id = address>
-		    The Lighthouse Bistro<br>
-		    #27 Lighthouse Road<br>
-		    Mackinac City, Michigan<br>
-			49701
-		    <p>
-			888-555-5555
-			</p>
-		</div>
-	</main>
-	<div id="map" style="height: 500px; width: 100%;"></div>
-    <button onclick="pickRandomRestaurant()">Pick a Random Restaurant</button>
-	</div>
-	<footer>
-		Copyright &copy; 2024 The Lighthouse Bistro <br>
-		<a href="mailto:jacob@shanefield.com">jacob@shanefield.com</a><br>
-		<script>
-				document.write(Date())
-		</script>
-	</footer>
+    <div id="wrapper">
+        <header>
+            <h1>The Lighthouse Bistro</h1>
+        </header>
+        <nav id="navigation">
+            <ul>
+                <li><a href="index.html">Home</a><br><br>
+                <li><a href="menu.html">Menu</a><br><br>
+                <li><a href="">Entertainment Schedule</a><br><br>
+                <li><a href="reservations.html">Reservations</a>
+            </ul>
+        </nav>
+        <nav id="tabletnav">
+            <div>
+                <a href="index.html">Home</a>
+                &nbsp;
+                <a href="menu.html">Our Menu</a>
+                &nbsp;
+                <a href="">Entertainment Schedule</a>
+                &nbsp;
+                <a href="reservations.html">Reservations</a>
+            </div>
+        </nav>
+        <div id="address2">
+            The Lighthouse Bistro<br>
+            #27 Lighthouse Road<br>
+            Mackinac City, Michigan<br>
+            49701<br>
+            <p id="desktoptablet">
+                888-555-5555
+            </p>
+            <p id="phone">
+                <a href="tel:8885555555">888-555-5555</a>
+            </p>
+        </div>
+        <main>
+            <img src="images/oldmackinaclight.jpg" alt="not found" style="float: right;width:250px;height:350px;">
+            <article>
+                <div>
+                    <h3>Enjoy Fine Dining and Entertainment at Lighthouse Point</h3>
+                    <p>
+                        The Lighthouse Bistro offers fine dining and entertainment a stones throw from the Old Mackinac Point 
+                        Lighthouse on the Straits of Mackinac. The lighthouse was built in 1892 as a sentinel for vessels entering
+                        the Straits of Mackinac. Open year-round. Yes, even in the winter! Stop in for a mug of one of our specialty
+                        coffees after your hike.
+                    </p><br>
+                    <ul>
+                        <li>Specialty Coffees and Teas</li>
+                        <li>Bagels, Muffins, and Organic Snacks</li>
+                        <li>Clam Strips, Oysters, and Fresh Fish served daily</li>
+                        <li>Music and Poetry Readings</li>
+                        <li>Open Mic Night Every Friday starting at 8:00pm</li>
+                    </ul>
+                </div>
+            </article>
+            <div id="address">
+                The Lighthouse Bistro<br>
+                #27 Lighthouse Road<br>
+                Mackinac City, Michigan<br>
+                49701<br>
+                <p>
+                    888-555-5555
+                </p>
+            </div>
+        </main>
+        <div id="map" style="height: 500px; width: 100%;"></div>
+        <button onclick="pickRandomRestaurant()">Pick a Random Restaurant</button>
+    </div>
+    <footer>
+        Copyright &copy; 2024 The Lighthouse Bistro <br>
+        <a href="mailto:jacob@shanefield.com">jacob@shanefield.com</a><br>
+        <script>
+            document.write(new Date().toLocaleDateString());
+        </script>
+    </footer>
 </body>
 </html>

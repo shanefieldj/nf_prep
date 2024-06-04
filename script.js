@@ -1,5 +1,4 @@
 let map;
-let service;
 let infowindow;
 
 function initMap() {
@@ -12,29 +11,43 @@ function initMap() {
     infowindow = new google.maps.InfoWindow();
 }
 
-function pickRandomRestaurant() {
-    const request = {
-        location: map.getCenter(),
-        radius: '1500',
-        type: ['restaurant']
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            const randomIndex = Math.floor(Math.random() * results.length);
-            const place = results[randomIndex];
-            createMarker(place);
-            infowindow.setContent(place.name);
-            infowindow.open(map);
+async function fetchRestaurants() {
+    try {
+        const response = await fetch('https://kfunc-25.azurewebsites.net/api/HttpTrigger1?code=M0HWXiLP0Hl5fj8eUqvAFxph6Lx4dG3K2mBa9G4JGnpuAzFu6LG6ng%3D%3D'); // Replace with your actual function URL
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        const data = await response.json();
+        return data.results; // Assuming your API returns a JSON object with a 'results' array
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
-function createMarker(place) {
+async function pickRandomRestaurant() {
+    const restaurants = await fetchRestaurants();
+    if (restaurants && restaurants.length > 0) {
+        const randomIndex = Math.floor(Math.random() * restaurants.length);
+        const place = restaurants[randomIndex];
+        const location = new google.maps.LatLng(place.geometry.location.lat, place.geometry.location.lng);
+        
+        createMarker(location, place.name);
+        map.setCenter(location);
+        infowindow.setContent(place.name);
+        infowindow.open(map);
+    } else {
+        alert('No restaurants found.');
+    }
+}
+
+function createMarker(location, name) {
     const marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: location
+    });
+    google.maps.event.addListener(marker, 'click', () => {
+        infowindow.setContent(name);
+        infowindow.open(map, marker);
     });
 }
 
