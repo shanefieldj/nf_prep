@@ -1,27 +1,41 @@
-async function fetchRestaurants() {
-    try {
-        const response = await fetch('https://kfunc-25.azurewebsites.net/api/HttpTrigger1?code=M0HWXiLP0Hl5fj8eUqvAFxph6Lx4dG3K2mBa9G4JGnpuAzFu6LG6ng%3D%3D'); // Replace with your actual function URL
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+let map;
+let service;
+let infowindow;
+
+function initMap() {
+    const location = { lat: 40.730610, lng: -73.935242 }; // Example: New York City
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: location,
+        zoom: 15,
+    });
+
+    infowindow = new google.maps.InfoWindow();
+}
+
+function pickRandomRestaurant() {
+    const request = {
+        location: map.getCenter(),
+        radius: '1500',
+        type: ['restaurant']
+    };
+
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            const randomIndex = Math.floor(Math.random() * results.length);
+            const place = results[randomIndex];
+            createMarker(place);
+            infowindow.setContent(place.name);
+            infowindow.open(map);
         }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
+    });
 }
 
-async function pickRandomRestaurant() {
-    const restaurants = await fetchRestaurants();
-    if (restaurants && restaurants.results.length > 0) {
-        const randomIndex = Math.floor(Math.random() * restaurants.results.length);
-        const restaurant = restaurants.results[randomIndex];
-        alert(`Random Restaurant: ${restaurant.name}`);
-    } else {
-        alert('No restaurants found.');
-    }
+function createMarker(place) {
+    const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // You can add any initialization code here if needed
-});
+document.addEventListener("DOMContentLoaded", initMap);
