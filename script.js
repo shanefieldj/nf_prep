@@ -13,7 +13,7 @@ function initMap() {
 
 async function fetchRestaurants() {
     try {
-        const response = await fetch('https://kfunc-25.azurewebsites.net/api/HttpTrigger1?code=EBg5CilDOshbXQNJtMRGy6OlVJIh8iwMPky2ZF4QWKiaAzFu24E_dQ%3D%3D'); // Replace with your actual function URL
+        const response = await fetch('https://kfunc-25.azurewebsites.net/api/HttpTrigger1?code=bDNOrEO5OPzyRao3gZfM_Ai4cmrX-FOZpFXv9vcUlT3PAzFunJXzwg%3D%3D'); // Replace with your actual function URL
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
