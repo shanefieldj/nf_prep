@@ -3,7 +3,23 @@ let service;
 let infowindow;
 
 function initMap() {
-    const location = { lat: 40.730610, lng: -73.935242 }; // Example: New York City
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const location = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            };
+            createMap(location);
+        }, () => {
+            handleLocationError(true, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    }
+}
+
+function createMap(location) {
     map = new google.maps.Map(document.getElementById("map"), {
         center: location,
         zoom: 15,
@@ -12,30 +28,10 @@ function initMap() {
     infowindow = new google.maps.InfoWindow();
 }
 
-function pickRandomRestaurant() {
-    const request = {
-        location: map.getCenter(),
-        radius: '1500',
-        type: ['restaurant']
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            const randomIndex = Math.floor(Math.random() * results.length);
-            const place = results[randomIndex];
-            createMarker(place);
-            infowindow.setContent(place.name);
-            infowindow.open(map);
-        }
-    });
+function handleLocationError(browserHasGeolocation, pos) {
+    infowindow.setPosition(pos);
+    infowindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infowindow.open(map);
 }
-
-function createMarker(place) {
-    const marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-    });
-}
-
-document.addEventListener("DOMContentLoaded", initMap);
