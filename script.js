@@ -1,5 +1,4 @@
 let map;
-let service;
 let infowindow;
 
 function initMap() {
@@ -55,24 +54,23 @@ function pickRandomRestaurant() {
         return;
     }
 
-    const request = {
-        location: map.getCenter(),
-        radius: '1500',
-        type: ['restaurant']
-    };
+    const location = map.getCenter();
+    const apiUrl = `https://kfunc-25.azurewebsites.net/api/HttpTrigger1?lat=${location.lat()}&lng=${location.lng()}&radius=1500`;
 
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK && results.length > 0) {
-            const randomIndex = Math.floor(Math.random() * results.length);
-            const place = results[randomIndex];
-            createMarker(place);
-            infowindow.setContent(place.name);
-            infowindow.open(map, marker);
-        } else {
-            console.error("No restaurants found or Places Service failed: ", status);
-        }
-    });
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(results => {
+            if (results.length > 0) {
+                const randomIndex = Math.floor(Math.random() * results.length);
+                const place = results[randomIndex];
+                createMarker(place);
+                infowindow.setContent(place.name);
+                infowindow.open(map);
+            } else {
+                console.error("No restaurants found.");
+            }
+        })
+        .catch(error => console.error('Error fetching restaurants:', error));
 }
 
 function createMarker(place) {
