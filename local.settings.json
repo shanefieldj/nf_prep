@@ -1,0 +1,9 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+      "FUNCTIONS_WORKER_RUNTIME": "node",
+      "GOOGLE_MAPS_API_KEY": "AIzaSyB2qoyrqXJOPahRFLG4uAZZHW91bF9PQkA"
+    }
+  }
+  
